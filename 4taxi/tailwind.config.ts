@@ -11,6 +11,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        yellow: {
+          400: '#FACC15',
+          500: '#EAB308',
+        },
+        green: {
+          500: '#22C55E',
+        },
       },
       animation: {
         "fade-out": "1s fadeOut 3s ease-out forwards",

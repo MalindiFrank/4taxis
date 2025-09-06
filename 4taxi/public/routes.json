@@ -1,0 +1,295 @@
+{
+  "version": "1.0",
+  "generated_at": "2025-09-06",
+  "routes": [
+    {
+      "id": "joburg-soweto-cbd-1",
+      "title": "Soweto → Joburg CBD (Main Rank)",
+      "city": "Johannesburg",
+      "origin": "Orlando - Soweto",
+      "destination": "Johannesburg CBD - Main Rank",
+      "roads": ["Chris Hani Rd", "Klipspruit Valley Rd", "Soweto Highway", "R41"],
+      "stops": [
+        {
+          "id": "s1",
+          "name": "Orlando West Rank",
+          "lat": -26.2675,
+          "lon": 27.8540,
+          "description": "Main taxi rank near Orlando Stadium. Busy; wait near central shelter.",
+          "recommended_wait_spot": "Under the large shelter by the rank",
+          "hand_signal": "Arm out, palm down, move hand left-to-right once"
+        },
+        {
+          "id": "s2",
+          "name": "Jabulani Corner",
+          "lat": -26.2550,
+          "lon": 27.8650,
+          "description": "Corner next to the market. Drivers slow down here.",
+          "recommended_wait_spot": "Next to the market entrance",
+          "hand_signal": "Arm raised above shoulder, palm facing forwards"
+        },
+        {
+          "id": "s3",
+          "name": "Johannesburg CBD - Main Rank",
+          "lat": -26.2041,
+          "lon": 28.0473,
+          "description": "Main rank in the CBD. Confirm exact drop point with driver.",
+          "recommended_wait_spot": "By the taxi lanes at the western entrance",
+          "hand_signal": "Point toward the road, then thumb over shoulder"
+        }
+      ],
+      "hand_signals": [
+        {
+          "name": "Default hail",
+          "description": "Stand facing road, raise arm to shoulder height and wave slowly left-right once; make eye contact with driver.",
+          "illustration": "hail_default.png"
+        }
+      ],
+      "share_card": {
+        "title": "Soweto → Joburg CBD",
+        "subtitle": "Wait at Orlando West Rank • Hand signal: arm out, palm down",
+        "cta": "Share this route"
+      }
+    },
+    {
+      "id": "joburg-sandton-alex-1",
+      "title": "Sandton → Alexandra",
+      "city": "Johannesburg",
+      "origin": "Sandton CBD",
+      "destination": "Alexandra Township",
+      "roads": ["R55", "William Nicol Dr", "R511"],
+      "stops": [
+        {
+          "id": "sa1",
+          "name": "Sandton Mall Rank",
+          "lat": -26.1070,
+          "lon": 28.0567,
+          "description": "Pick-up by the taxi bays behind the mall.",
+          "recommended_wait_spot": "Taxi bay 3",
+          "hand_signal": "Raise hand above head and wave once"
+        },
+        {
+          "id": "sa2",
+          "name": "Wolhuter St Corner",
+          "lat": -26.0830,
+          "lon": 28.1070,
+          "description": "Common roadside stop near clinics.",
+          "recommended_wait_spot": "Near the clinic entrance",
+          "hand_signal": "Palm out, small downward motion"
+        }
+      ],
+      "hand_signals": [
+        {
+          "name": "Quick hail",
+          "description": "Lift hand above head and give one clear forward wave; used for faster-moving roads.",
+          "illustration": "hail_quick.png"
+        }
+      ],
+      "share_card": {
+        "title": "Sandton → Alexandra",
+        "subtitle": "Sandton Mall taxi bay 3 • Quick hail",
+        "cta": "Share this"
+      }
+    },
+    {
+      "id": "ct-cbd-khayelitsha-1",
+      "title": "Cape Town CBD → Khayelitsha",
+      "city": "Cape Town",
+      "origin": "Cape Town CBD",
+      "destination": "Khayelitsha Main Rank",
+      "roads": ["N2", "M5", "Khayelitsha Rd"],
+      "stops": [
+        {
+          "id": "ct1",
+          "name": "Adderley St Taxi Rank",
+          "lat": -33.9258,
+          "lon": 18.4232,
+          "description": "Central pick-up in CBD next to main bus stops.",
+          "recommended_wait_spot": "Near the corner by the bookshop",
+          "hand_signal": "Arm out, palm down, two short waves"
+        },
+        {
+          "id": "ct2",
+          "name": "Khayelitsha Station Rank",
+          "lat": -34.0219,
+          "lon": 18.6208,
+          "description": "Main taxi rank near the commuter rail station.",
+          "recommended_wait_spot": "By the station entrance",
+          "hand_signal": "Point down the road, then palm forward"
+        }
+      ],
+      "hand_signals": [
+        {
+          "name": "Long hail",
+          "description": "Stand visible, raise arm and wave slowly until driver acknowledges; useful on highways.",
+          "illustration": "hail_long.png"
+        }
+      ],
+      "share_card": {
+        "title": "Cape Town CBD → Khayelitsha",
+        "subtitle": "Adderley St rank • Hand signal: 2 short waves",
+        "cta": "Share route"
+      }
+    },
+    {
+      "id": "durban-cbd-umhlanga-1",
+      "title": "Durban CBD → Umhlanga Ridge",
+      "city": "Durban",
+      "origin": "Durban City Centre",
+      "destination": "Umhlanga Ridge",
+      "roads": ["M4", "R102", "Ridgeside Dr"],
+      "stops": [
+        {
+          "id": "d1",
+          "name": "Florence Nightingale Rank",
+          "lat": -29.8587,
+          "lon": 31.0218,
+          "description": "Central Durban rank near the beachfront.",
+          "recommended_wait_spot": "By the taxi lanes near the promenade",
+          "hand_signal": "Arm up, palm facing forwards, small circular motion"
+        },
+        {
+          "id": "d2",
+          "name": "Umhlanga Ridge Mall Stop",
+          "lat": -29.7067,
+          "lon": 31.0916,
+          "description": "Stop by the shopping centre entrance.",
+          "recommended_wait_spot": "Near the north entrance",
+          "hand_signal": "Thumb pointed toward direction of travel"
+        }
+      ],
+      "hand_signals": [
+        {
+          "name": "Beach hail",
+          "description": "Raise hand above head and wave once; drivers often slow for visible hails near ranks.",
+          "illustration": "hail_beach.png"
+        }
+      ],
+      "share_card": {
+        "title": "Durban CBD → Umhlanga",
+        "subtitle": "Florence Nightingale rank • Hand signal: circular motion",
+        "cta": "Send to WhatsApp"
+      }
+    },
+    {
+      "id": "pretoria-menlyn-m2",
+      "title": "Menlyn → Pretoria CBD",
+      "city": "Pretoria",
+      "origin": "Menlyn Shopping Centre",
+      "destination": "Pretoria CBD - Church Square",
+      "roads": ["N1", "M2"],
+      "stops": [
+        {
+          "id": "p1",
+          "name": "Menlyn Mall Taxi Bay",
+          "lat": -25.7580,
+          "lon": 28.2334,
+          "description": "Pick-up by the north taxi bay.",
+          "recommended_wait_spot": "Taxi bay A",
+          "hand_signal": "Arm raised, palm facing driver, two short waves"
+        },
+        {
+          "id": "p2",
+          "name": "Church Square Stop",
+          "lat": -25.7465,
+          "lon": 28.1881,
+          "description": "Central Pretoria landmark — confirm exact drop point.",
+          "recommended_wait_spot": "Near the square's west corner",
+          "hand_signal": "Point to the square, then give a thumb"
+        }
+      ],
+      "hand_signals": [
+        {
+          "name": "Square hail",
+          "description": "Stand clearly visible, raise arm and show palm; hold until acknowledged.",
+          "illustration": "hail_square.png"
+        }
+      ],
+      "share_card": {
+        "title": "Menlyn → Pretoria CBD",
+        "subtitle": "Menlyn taxi bay A • Hand signal: two short waves",
+        "cta": "Share"
+      }
+    },
+    {
+      "id": "ct-cbd-constantia",
+      "title": "Cape Town CBD → Constantia",
+      "city": "Cape Town",
+      "origin": "Cape Town CBD",
+      "destination": "Constantia Village",
+      "roads": ["M3", "Constantia Main Rd"],
+      "stops": [
+        {
+          "id": "cc1",
+          "name": "Adderley St Rank (CBD)",
+          "lat": -33.9260,
+          "lon": 18.4233,
+          "description": "Main pick-up in CBD.",
+          "recommended_wait_spot": "Near taxi/bus interchange",
+          "hand_signal": "Raise hand and nod towards road"
+        },
+        {
+          "id": "cc2",
+          "name": "Constantia Village Market",
+          "lat": -34.0004,
+          "lon": 18.4567,
+          "description": "Market area stop near shops.",
+          "recommended_wait_spot": "Outside the market entrance",
+          "hand_signal": "Palm forward and slow wave"
+        }
+      ],
+      "hand_signals": [
+        {
+          "name": "Market hail",
+          "description": "Make yourself visible and use a steady forward wave; drivers often wait near markets.",
+          "illustration": "hail_market.png"
+        }
+      ],
+      "share_card": {
+        "title": "CBD → Constantia",
+        "subtitle": "Adderley St rank • Market hail",
+        "cta": "Share route"
+      }
+    },
+    {
+      "id": "joburg-randburg-1",
+      "title": "Randburg → Roodepoort",
+      "city": "Johannesburg",
+      "origin": "Randburg Civic Centre",
+      "destination": "Roodepoort Mall",
+      "roads": ["R512", "Malibongwe Dr"],
+      "stops": [
+        {
+          "id": "r1",
+          "name": "Randburg Civic Taxi Bay",
+          "lat": -26.0941,
+          "lon": 28.0039,
+          "description": "Pick-up next to civic centre parking.",
+          "recommended_wait_spot": "Near the taxi shelter",
+          "hand_signal": "Arm raised, palm facing down, one long wave"
+        },
+        {
+          "id": "r2",
+          "name": "Roodepoort Mall Stop",
+          "lat": -26.1790,
+          "lon": 27.8540,
+          "description": "Stop outside the main mall entrance.",
+          "recommended_wait_spot": "At mall taxi bay",
+          "hand_signal": "Point down the route and wave once"
+        }
+      ],
+      "hand_signals": [
+        {
+          "name": "Mall hail",
+          "description": "Stand visible near the entrance and give a single clear wave toward the road.",
+          "illustration": "hail_mall.png"
+        }
+      ],
+      "share_card": {
+        "title": "Randburg → Roodepoort",
+        "subtitle": "Randburg taxi bay • Hand signal: long wave",
+        "cta": "Share"
+      }
+    }
+  ]
+}
