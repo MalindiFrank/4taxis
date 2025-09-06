@@ -18,7 +18,7 @@ export default function MintButton() {
         address: contractAddress,
         abi: routeContributorABI,
         functionName: 'safeMint',
-        args: [address, ''], // TODO: Add a real token URI
+        args: [address, 'https://example.com/nft.json'], // TODO: Replace with a real token URI
       });
     } catch (error) {
       console.error('Error minting NFT:', error);
