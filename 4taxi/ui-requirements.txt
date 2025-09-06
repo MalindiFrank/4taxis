@@ -1,0 +1,155 @@
+# UI prompt — Taxi Connect (UI-only, South Africa-matched, mobile-first, hackathon MVP)
+
+You are a senior product UI/UX designer building the **Taxi Connect** mobile-first UI. Focus only on the UI (no backend code), and design an experience that is **visually striking, socially engaging, psychologically persuasive, and unmistakably South African**. This prompt is for a designer or an AI UI generator (Figma/React/Tailwind output). Keep it hackathon-fast: polished, demo-ready, and easy to implement.
+
+---
+
+## Context (use from session)
+
+* App name: **Taxi Connect** — shows taxi routes, stops, hand-signals; uses `public/routes.json` for data.
+* Target users: South African commuters, newcomers, informal taxi riders, and local contributors.
+* Platform: Mobile-first web (progressive) with a beautiful tablet/desktop fallback.
+* Web3 touch: small wallet/mint UI (badge) — show it simply and confidently in the design.
+
+---
+
+## Design Goals (1 line each)
+
+* **Recognizable & local:** Visual language that feels South African (taxi-culture cues) without stereotyping.
+* **Instant emotional clarity:** Users should immediately understand “I can find routes, learn hand signals, and share.”
+* **Shareable & viral:** Hand-signal cards and route cards should be attractive shareables for WhatsApp, X, and Instagram.
+* **Trust & safety:** Clear affordances for accuracy (community edits), easy fallback when wallets fail.
+* **Fast to build:** Use common UI primitives (cards, map modal, badges, modals, simple animations).
+
+---
+
+## Visual identity (explicit tokens)
+
+* Palette (taxi-inspired):
+
+  * Taxi Yellow: `#FFD100`
+  * Deep Black: `#0B0B0B`
+  * Signal Green: `#2EB872`
+  * Warm Red (accents): `#E63946`
+  * Neutral Gray: `#F5F5F7` / `#8A8A8A`
+* Typography:
+
+  * Headline: **Poppins / Montserrat** (bold, friendly)
+  * UI body: **Inter / System UI** (readable at small sizes)
+* Iconography:
+
+  * Bold, rounded stroke icons. Create a set: taxi, location, hand-signal, badge, wallet, share, leaderboard.
+* Imagery:
+
+  * Stylised photo overlays of South African streets/taxis with duotone (yellow + black) masks for hero areas.
+* Shape language:
+
+  * Cards with **2xl rounded corners**, soft shadows, generous touch targets (≥44px).
+
+---
+
+## Core screens & components (deliver these, pixel-perfect)
+
+1. **Home / Search**
+
+   * Header: small brand mark (taxi icon + Taxi Connect), city selector, wallet status (connect).
+   * Search input (prominent), suggested quick chips (e.g., “Soweto”, “Sandton”).
+   * Top carousel: “Featured routes” with share CTA.
+   * Small leaderboard widget (compact).
+
+2. **Map + Route List (results)**
+
+   * Fullscreen map (Leaflet) with soft UI overlay at bottom: selected route card.
+   * Map markers with animated pulse; polyline with 3px stroke, dashed segments for 'uncertified' stops.
+   * Bottom route card shows title, ETA range (fake demo text), first/last stop, “View details” and “Share”.
+
+3. **Route Detail**
+
+   * Big hero: route title + city + share button.
+   * Horizontal stop list (swipeable) with illustrated micro-card showing hand-signal icon, stop name, short tip.
+   * “Hand Signal Card” CTA — opens a large shareable card generator modal.
+
+4. **Hand Signal Share Card Modal**
+
+   * Full-bleed visual card preview (exportable PNG 1200×630 & 1080×1080).
+   * Strong typography: route name, stop name, 1-line hand-signal instruction, clear illustration of the hand gesture.
+   * CTAs: “Share to WhatsApp”, “Save Image”, “Copy link”.
+   * Micro-animations: hand icon animates once when opened.
+
+5. **Contribution Flow (Add Stop)**
+
+   * Small modal form: name, lat/lon (map pin), description, hand-signal text, “submit”.
+   * After submit: show a short confetti microanimation and an inline “Mint badge” hint if wallet connected.
+   * Contribution appears immediately in the route's stop list with a subtle highlight (glow) and “Pending verification” badge.
+
+6. **Wallet / Mint Modal**
+
+   * Clear steps: Connect Wallet → Review Badge → Mint (gas estimate small) → Transaction hash shown.
+   * Show fallback button “Demo mint (mock)” with tooltip “Use if you don’t have testnet funds”.
+
+7. **Leaderboard & Profile**
+
+   * Simple list: avatar (generated initials + pattern), username, contributions, badges.
+   * Profile shows minted badges, contributions map heat-dot.
+
+---
+
+## Microinteractions & motion (psychology-driven)
+
+* **Map marker pulse** to draw attention; bigger pulse for top-ranked stops.
+* **Card lift on tap** (subtle scale + shadow) to communicate tangibility.
+* **Confetti + soundless microcelebration** on first contribution/mint — triggers dopamine.
+* **Badge reveal animation** (flip + glow) to make minting feel rewarding.
+* **Progressive disclosure**: show essential info first (stop name & hand-signal), reveal extra on swipe/tap.
+* **Error toast + friendly recovery** for wallet failures (e.g., “No funds — try Demo mint”).
+
+---
+
+## Accessibility & localization
+
+* Contrast: ensure text on Taxi Yellow uses Deep Black, and CTAs meet WCAG AA.
+* Keyboard & screen reader support for all modals and map controls.
+* Copy localization: provide UI strings in **English**, and optionally **Afrikaans**, **isiZulu**, and **Sesotho**. Use short, plain language.
+* Touch targets ≥44px, spacing to avoid mis-taps in crowded ranks.
+
+---
+
+## Copy & microcopy Examples (use these)
+
+* Home hero: “Find the right taxi. Know the stop. Use the right signal.”
+* Hand-signal card subtitle: “Stand visible • Arm out • Wave once”
+* Contribution confirmation: “Nice one — your stop is live for this session. Mint your Contributor badge?”
+* Wallet error: “Can’t connect to wallet. Try MetaMask (testnet) or use Demo mint.”
+
+---
+
+## Shareables & export specs
+
+* **Share image**: 1200×630 px (preview + WhatsApp); also export square 1080×1080.
+* Include a clean SVG icon set (hand signals) and 3 PNG/WEBP duotone taxi photos.
+* Social card must include: route title, stop name, short hand-signal line, small Taxi Connect logo, and a CTA line “Open in Taxi Connect”.
+
+---
+
+## Implementation suggestions (fast)
+
+* Build UI in **React + Tailwind** (Tailwind tokens for color scale).
+* Use **Framer Motion** for animations (or CSS transitions if simpler).
+* Provide React components: `MapView`, `RouteCard`, `StopCard`, `ShareCardGenerator`, `WalletModal`, `ContributionForm`. Each component must accept data from `routes.json`.
+
+---
+
+## Deliverables & acceptance criteria (for hackathon/demo)
+
+* Deliver a Figma file (or 4 PNG mockups) with the 4 main screens: Home, Map+Route, Route Detail (hand signal), Contribution + Mint flow.
+* Exportable assets: icons (SVG), 2 hand-signal illustrations (SVG), 2 duotone photos, social card template.
+* A style token sheet: colors, fonts, spacing scale, button styles, small animation specs.
+* Acceptance: UI is mobile-first, visually aligned to tokens above, hand-signal card export works, contribution flow shows immediate UI change, mint modal presentable (can be wired to mocked or real ethers.js).
+
+---
+
+## Tone & cultural fit guidance (one para)
+
+Design with warm, human energy — not clinical. Use playful but respectful nods to South African taxi culture: high-contrast taxi yellow, friendly rounded type, and approachable microcopy. Avoid caricature; celebrate the everyday — the rank, the original riders, and their local knowledge. Make sharing feel like helping a friend.
+
+---

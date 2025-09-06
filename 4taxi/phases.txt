@@ -1,0 +1,107 @@
+Of course. Here is the comprehensive Taxi Connect MVP prompt broken down into four distinct, sequential phases. Each phase is a complete, copy-pasteable prompt that builds upon the previous one, allowing for iterative development and testing.
+
+---
+
+### **Phase 1: Core UI & Static Data Foundation**
+
+**Goal:** Build the foundational React app with a mobile-first UI, static data loading, and the basic page structure without interactive maps or blockchain features.
+
+**Copy-Paste Prompt:**
+
+Build the initial version of the **Taxi Connect** web app. Focus solely on the frontend structure and static data handling.
+
+**Requirements:**
+1.  **Tech Stack:** Use React with Vite. Style with CSS modules or a simple framework like Tailwind.
+2.  **Static Data:** Create a `public/routes.json` file. Use this sample structure:
+    ```json
+    [
+      {
+        "id": "soweto-jhb",
+        "title": "Soweto to Johannesburg CBD",
+        "city": "Johannesburg",
+        "stops": [
+          {
+            "id": "stop1",
+            "name": "Maponya Mall",
+            "lat": -26.2675,
+            "lon": 27.8586,
+            "description": "Main pickup spot near the taxi rank.",
+            "hand_signal": "Wave hand vertically with palm facing forward.",
+            "wait_spot": "North entrance next to the supermarket"
+          }
+        ]
+      }
+    ]
+    ```
+3.  **Pages/Components:**
+    *   A **Homepage** that lists all routes from the JSON file.
+    *   A **Route Detail Page** that displays the route's title, city, and a list of its stops (name, description, wait spot, hand signal).
+    *   Basic navigation between these pages (e.g., React Router).
+4.  **UI/UX:** Implement a mobile-first, responsive design. Use a bold taxi color palette (e.g., yellow backgrounds, black text, green accents for buttons).
+5.  **Deliverable:** A working React app where a user can view a list of routes and click into a route to see its details in a list format. No map or interactivity yet.
+
+---
+
+### **Phase 2: Interactive Map Integration**
+
+**Goal:** Integrate Leaflet.js to visually display the taxi routes and stops on an interactive map.
+
+**Copy-Paste Prompt:**
+
+Enhance the Taxi Connect app from Phase 1 by integrating an interactive map to visualize the routes.
+
+**Requirements:**
+1.  **Map Library:** Integrate `leaflet` and `react-leaflet` libraries. Use free OpenStreetMap tiles.
+2.  **Map View:** Create a new Map component.
+3.  **Route Detail Page Update:** Modify the Route Detail page to include the Map component.
+4.  **Map Functionality:**
+    *   The map should center and zoom to fit all stops in the selected route.
+    *   Draw a **polyline** connecting all the stops in the route's `stops` array (in order) using their `lat` and `lon`.
+    *   Place a **marker** on the map for each stop.
+    *   When a marker is clicked, show a popup with the stop's `name` and `hand_signal`.
+5.  **Deliverable:** The app now has a visual map on the detail page. Users can see the route's path and interact with stop markers. The core list view from Phase 1 should remain.
+
+---
+
+### **Phase 3: Contribution System & Sharing**
+
+**Goal:** Implement the community contribution feature (in-memory) and the ability to share hand-signal cards.
+
+**Copy-Paste Prompt:**
+
+Add functionality for users to contribute new stops and share information, all handled on the client-side.
+
+**Requirements:**
+1.  **In-Memory State:** Use React state (e.g., `useState`, Context) to manage the application data. Load the initial data from `routes.json`, but allow new contributions to be appended to it in memory for the session.
+2.  **Contribution Form:** On the Route Detail page, add a form to "Add a Stop". Fields: `name`, `lat`, `lon`, `description`, `hand_signal`.
+3.  **Form Behavior:** On submit, the new stop should be immediately added to the current route's `stops` array in the app's state. This must update the UI instantly: the list view should show the new stop, and the map should redraw the polyline and add a new marker.
+4.  **Leaderboard Component:** Create a simple component that counts and displays the number of contributions made *in the current session* (e.g., "You've added 2 stops!").
+5.  **Sharing Feature:** For each stop's hand-signal card, add a "Share" button. Use the Web Share API if available (navigator.share) to share text like: `"Taxi hand signal for [Stop Name]: [Hand Signal Text]. Found on Taxi Connect!"`. If the API is not available, console.log the share text for demo purposes.
+6.  **Deliverable:** A fully functional front-end experience. Users can now add new stops (visible until page refresh) and attempt to share stop info. The leaderboard shows their session activity.
+
+---
+
+### **Phase 4: On-Chain Badge Minting on Base**
+
+**Goal:** Integrate wallet connection and enable users to mint an NFT badge on Base testnet as proof of their first contribution.
+
+**Copy-Paste Prompt:**
+
+Add the on-chain layer to Taxi Connect. Integrate MetaMask to allow users to mint a "Route Contributor" NFT on Base Sepolia testnet when they make their first in-session contribution.
+
+**Requirements:**
+1.  **Wallet Connection:** Integrate `ethers.js`. Add a "Connect Wallet" button. Once connected, display a truncated version of the user's address (e.g., `0x7F34...C291`).
+2.  **Smart Contract:**
+    *   Use the provided `RouteBadge.sol` contract (from the original prompt).
+    *   It must be pre-deployed to **Base Sepolia testnet**. Provide the deployed contract address in the app's configuration.
+    *   The contract's ABI must be available to the frontend.
+3.  **Mint Logic:**
+    *   Add a "Mint Contributor Badge" button that only becomes enabled if two conditions are met: 1) The wallet is connected, and 2) The user has made **>=1 contributions** in the current session (from Phase 3) and hasn't minted yet this session.
+    *   Clicking the button should trigger a contract interaction: call the `mintBadge(to, tokenURI)` function on the deployed contract. For simplicity, you can use a generic, pre-hosted metadata URI (e.g., a JSON file on IPFS or in the `public/` folder) for all badges for this demo.
+    *   Use ethers to send the transaction and wait for confirmation.
+4.  **Transaction Feedback:** After a successful mint, clearly display the transaction hash and the minted token ID in the UI. Make the tx hash a link to the Basescan block explorer.
+5.  **Error & Fallback Handling:**
+    *   If the user is not on Base testnet, prompt them to switch networks.
+    *   If any step fails (e.g., user rejects tx), show an error message.
+    *   Implement a "Demo Mode" fallback. If the chain is unavailable after prompting, simulate a mint by generating a fake transaction hash and displaying it clearly as "Demo Mode - Not a real transaction".
+6.  **Deliverable:** The complete MVP. Users can now perform the full demo flow: find a route, add a stop, connect their wallet, mint a real NFT on Base, and see the proof of their on-chain contribution.

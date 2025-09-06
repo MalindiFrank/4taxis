@@ -1,0 +1,125 @@
+Nice — here’s a single, copy-paste **developer / AI assistant prompt** you can use straight away (for a teammate, a GitHub issue, or to paste into ChatGPT) to build the **Taxi Connect** MVP that uses **Base L2** for a tiny on-chain reward. It assumes **static JSON** for route data and keeps the demo hackathon-friendly.
+
+# 🧾 Copy-paste prompt — build Taxi Connect MVP (Base L2)
+
+**Goal:** Build an MVP web app called **Taxi Connect** (mobile-first) that displays taxi routes/stops and hand-signal cards from a static `routes.json`, allows simple community contributions (in-app only, stored in memory), and demonstrates a minimal on-chain reward: mint a “Route Contributor” NFT on **Base testnet** when a user submits their first contribution.
+
+## Requirements / Acceptance criteria
+
+1. **Static data**
+
+   * Use `public/routes.json` (seed JSON already provided) as the single source of route data for the demo.
+   * No external DB required. Contributions during a session are stored in memory (client state) and update the UI immediately.
+
+2. **Frontend**
+
+   * React (Vite or Create React App) — mobile-first responsive UI.
+   * Pages/components:
+
+     * Home / Search (search by city or route title)
+     * Map view (Leaflet + OpenStreetMap) showing route polylines built from each route's `stops` lat/lon
+     * Route detail: stops list, descriptions, recommended wait spot, hand-signal card with illustration and share button (WhatsApp/Share API or generate shareable image)
+     * Contribution form (add a stop: name, lat, lon, description, hand\_signal) — updates UI immediately
+     * Wallet & Mint modal: connect wallet, show mint button when eligible
+   * Visual style: bold taxi palette (yellow/black/green accents), clear large icons for hand signals, mobile card layout.
+
+3. **Map**
+
+   * Leaflet + OpenStreetMap tiles.
+   * Polyline drawn from `route.stops` in order.
+   * Clickable stop markers showing stop details and `hand_signal`.
+
+4. **On-chain (Base testnet)**
+
+   * Integrate wallet connect using `ethers.js` / MetaMask.
+   * Provide a minimal ERC-721 smart contract (deploy to Base testnet beforehand or during hackathon). When a user submits their first in-session contribution, allow them to mint a “Route Contributor” NFT to their connected wallet.
+   * UI must show the transaction hash and the minted token ID / metadata URI after minting.
+   * If chain is unavailable, allow a fallback “mock mint” path that shows a signed message or a mocked tx hash and mark it clearly as demo mode.
+
+5. **Demo flow must be short and reproducible**
+
+   * Search → open a route → show map + hand signal card → add a stop → connect wallet → mint badge → show tx hash and updated leaderboard.
+
+6. **Deliverables**
+
+   * Repo with `README.md` containing run & deploy instructions.
+   * `public/routes.json` (seed data).
+   * Minimal Solidity `Badge.sol` contract (ERC-721) source + deployed address (or instructions to deploy to Base testnet).
+   * Short demo script (3–5 lines) and 3 screenshots/GIFs.
+
+## Tech stack (keep simple)
+
+* Frontend: React + Vite (or CRA)
+* Maps: Leaflet.js + OpenStreetMap
+* On-chain: ethers.js, MetaMask, Base testnet
+* Data: `public/routes.json` (static)
+* Hosting: Vercel (frontend)
+* Optional backend: none (optional serverless function only if needed to host metadata URIs)
+
+## Minimal ERC-721 (for hackathon) — include with prompt
+
+Use this very small Solidity contract to mint badges (deploy to Base testnet):
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract RouteBadge is ERC721URIStorage, Ownable {
+    uint256 public nextId;
+
+    constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {}
+
+    function mintBadge(address to, string calldata tokenURI) external returns (uint256) {
+        uint256 id = ++nextId;
+        _safeMint(to, id);
+        _setTokenURI(id, tokenURI);
+        return id;
+    }
+
+    // owner can withdraw accidental funds
+    function withdraw() external onlyOwner {
+        payable(owner()).transfer(address(this).balance);
+    }
+
+    receive() external payable {}
+}
+```
+
+> For hackathon speed: deploy this to **Base testnet** (or use a single pre-deployed address). Frontend can call `mintBadge(userAddress, metadataURI)` via ethers.js.
+
+## Frontend behavior specifics (for implementer)
+
+* Load `/routes.json` on startup. Show top 5 routes or allow search by city.
+* Map: build polyline from `route.stops.map(s => [s.lat, s.lon])`.
+* Contribution: when user submits a stop, append to `route.stops` in client memory, update map and leaderboard. Mark contribution as `inSession: true`.
+* Mint rule: if user has never minted and has made ≥1 contribution in the current session, show “Mint Route Contributor” button. Clicking opens MetaMask to call `mintBadge`. After tx confirm, show tx hash and token metadata.
+* Provide “Share card” that merges route title + stop name + short hand-signal text into an image or share text with link.
+
+## Demo script (what to say while demoing)
+
+1. “Search for ‘Soweto’ — select the Soweto → Joburg CBD route.” (show map and stop markers)
+2. “Click a stop to see the hand-signal card — tap ‘Share’ to send it on WhatsApp.”
+3. “I’ll add a missing stop now.” (fill small form → show UI updates)
+4. “Connect wallet and mint a contributor badge — transaction confirmed (show hash).”
+5. “Leaderboard updates — social proof + on-chain evidence of contribution.”
+
+## Success metrics for hackathon judges
+
+* Working route search and map visualization (demoable).
+* In-session contribution visible immediately in UI.
+* A real on-chain mint transaction on Base testnet visible in UI (tx hash).
+* Mobile-friendly, polished UIs (hand-signal cards are clear and shareable).
+
+---
+
+## Extra notes & constraints (important)
+
+* Keep backend work minimal — prefer pure frontend for speed.
+* Make the on-chain contract as simple as possible; the value is provenance (badge minted) not token economics.
+* Label testnet vs production clearly in UI.
+* Use the provided `routes.json` seed (no scraping, no external map licensing costs).
+
+break this prompt down in 4 different prompts that follow along each other, I want to build the app phase by phase max of 4 phases. Do not leave out anything just seperate into 4 phases
