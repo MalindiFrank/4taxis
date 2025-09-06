@@ -3,7 +3,6 @@
 import { useAccount, useConnect, useDisconnect, useWriteContract } from 'wagmi';
 import { injected } from 'wagmi/connectors';
 import { routeContributorABI } from '@/lib/abi';
-import { useState } from 'react';
 
 const contractAddress = '0x2452984eA21f2425D2e455c5DF8f432427837aC9'; // Replace with your actual contract address
 
