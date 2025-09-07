@@ -9,8 +9,8 @@
     "splashImageUrl": "https://4taxis.vercel.app/splash.png",
     "splashBackgroundColor": "#6655ae",
     "webhookUrl": "https://4taxis.vercel.app/api/webhook",
-    "subtitle": "{   \"frame\": {     \"name\": \"4Taxis\",     \"version\": \"1\",     \"iconUrl\": \"https://4taxis.vercel.app/icon.png\",     \"homeUrl\": \"https://4taxis.vercel.app\",     \"imageUrl\": \"https://4taxis.vercel.app/image.png\",     \"splashImageUrl\": \"https://4taxis.vercel.app/splash.png\",     \"splashBackgroundColor\": \"#ffff34\",     \"webhookUrl\": \"https://4taxis.vercel.app/api/webhook\",     \"subtitle\": \"4Taxis is a community-driven platform for discovering and sharing taxi routes and stops. It allows users to view existing routes, contribute new stops, and earn on-chain rewards for their contributions.\",     \"description\": \"4Taxis is a community-driven platform for discovering and sharing taxi routes and stops. It allows users to view existing routes, contribute new stops, and earn on-chain rewards for their contributions.\",     \"primaryCategory\": \"social\"   } }",
-    "description": "{   \"frame\": {     \"name\": \"4Taxis\",     \"version\": \"1\",     \"iconUrl\": \"https://4taxis.vercel.app/icon.png\",     \"homeUrl\": \"https://4taxis.vercel.app\",     \"imageUrl\": \"https://4taxis.vercel.app/image.png\",     \"splashImageUrl\": \"https://4taxis.vercel.app/splash.png\",     \"splashBackgroundColor\": \"#ffff34\",     \"webhookUrl\": \"https://4taxis.vercel.app/api/webhook\",     \"subtitle\": \"4Taxis is a community-driven platform for discovering and sharing taxi routes and stops. It allows users to view existing routes, contribute new stops, and earn on-chain rewards for their contributions.\",     \"description\": \"4Taxis is a community-driven platform for discovering and sharing taxi routes and stops. It allows users to view existing routes, contribute new stops, and earn on-chain rewards for their contributions.\",     \"primaryCategory\": \"social\"   } }",
+    "subtitle": "4Taxis is a community-driven platform for discovering and sharing taxi routes and stops.",
+    "description": "4Taxis allows users to view existing routes, contribute new stops, and earn on-chain rewards for their contributions.",
     "primaryCategory": "social",
     "tags": [
       "taxi",
@@ -24,3 +24,4 @@
     "signature": "MHgzZjJkMGM3Zjk1ODljZTE0YmI1ODRjZGM3N2M2MGFhMmFhYTcyNWFlMDk1NTg0YTI4OWM1ZjU5ZmE3ZDY2ODFiNDA1ZWFiODUzMzVjZGYwNmZmNzIxNDM4ODc3ZTZmMGU2NjBjMDc3N2RlNjQzMmE3M2ZhZTk2ODMwYWUwMzhlYzFj"
   }
 }
+
