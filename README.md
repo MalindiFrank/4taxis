@@ -2,7 +2,8 @@
 
 4Taxis is a community-driven platform for discovering and sharing taxi routes and stops. It allows users to view existing routes, contribute new stops, and earn on-chain rewards for their contributions.
 
-[Base + Farcaster Mini App](https://farcaster.xyz/miniapps/Y1ED5ZAdKKum/taxiconnect)
+[Base + Farcaster Mini App](https://farcaster.xyz/miniapps/Y1ED5ZAdKKum/taxiconnect)   
+[4Taxis - TaxiConnect App](https://4taxis.vercel.app)
 
 ## Features
 
@@ -12,6 +13,8 @@
 - **On-Chain Rewards:** Contributors can mint a "Route Contributor" NFT badge on the Base Sepolia testnet as a proof-of-contribution.
 
 ## Getting Started
+
+[Try it out now!](https://4taxis.vercel.app)
 
 1. **Install dependencies:**
    ```bash
@@ -45,6 +48,8 @@
 - [Leaflet](https://leafletjs.com)
 - [Wagmi](https://wagmi.sh)
 - [@coinbase/onchainkit](https://github.com/coinbase/onchainkit)
+
+[4Taxis - TaxiConnect App](https://4taxis.vercel.app)
 
 ## Future Work
 
