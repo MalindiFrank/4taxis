@@ -1,8 +1,8 @@
-# 4Taxis
+# 4Taxis - TaxiConnect
 
 4Taxis is a community-driven platform for discovering and sharing taxi routes and stops. It allows users to view existing routes, contribute new stops, and earn on-chain rewards for their contributions.
 
-[Base Mini App](https://farcaster.xyz/miniapps/Y1ED5ZAdKKum/taxiconnect)
+[Base + Farcaster Mini App](https://farcaster.xyz/miniapps/Y1ED5ZAdKKum/taxiconnect)
 
 ## Features
 
