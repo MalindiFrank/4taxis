@@ -16,7 +16,6 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
   font-family: "Geist", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
